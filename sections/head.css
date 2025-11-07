@@ -1,0 +1,84 @@
+#HEAD{
+    margin-top: 125px;
+    width: 600px;
+    padding: 120px 50px 30px;
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+
+    background: var(--color-background1);
+
+    border-radius: 50% 50% 0px 0px; /* Fully rounded top corners */
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    color: var(--color-font);
+}
+
+
+.profile-pic {
+    position: absolute;
+    top: -125px;
+    left: 50%;
+    transform: translateX(-50%); 
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 15px solid var(--color-font );
+}
+
+.name-title {
+    font-size: 70px;
+    margin: 0 auto; /* Center the title */
+    display: inline-block; /* Make the border wrap the text */
+    border-bottom: 3px solid var(--color-font);
+    text-shadow: 
+        0 0 5px #fff,
+        0 0 10px #fff,
+        0 0 20px #ffffff,
+        0 0 40px #ffffff,
+        0 0 80px #ffffff;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+.shortabout-text{
+    padding-top: 10px;
+}
+
+.head-stars{
+    color: var(--color-font);
+}
+
+
+@keyframes glow {
+    from {
+        text-shadow: 
+            0 0 5px #fff,
+            0 0 10px #fff,
+            0 0 20px #ffffff,
+            0 0 40px #ffffff;
+    }
+    to {
+        text-shadow: 
+            0 0 10px #fff,
+            0 0 20px #ffffff,
+            0 0 30px #ffffff,
+            0 0 50px #ffffff,
+            0 0 100px #ffffff;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,63 @@
+/* ===== MOODBOARD SECTION ===== */
+#MOODBOARD-CARD {
+  background-color: var(--color-background1);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+#MOODBOARD-CARD:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+.mood-grid {
+  margin-top: 20px;
+  column-count: 4;
+  column-gap: 15px;
+}
+
+.mood-grid-item {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 15px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.mood-grid img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: var(--color-background2);
+}
+
+.mood-grid-item:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  z-index: 1;
+  position: relative;
+}
+
+/* Responsive styles have been removed as requested */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--text-primary);
+  color: var(--color-font);
+}
+
+p {
+  font-family: var(--text-secondary);
+  margin: 0.8em 0;
+  line-height: 1.6;
+  color: var(--color-font);
+}

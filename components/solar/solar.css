@@ -1,0 +1,699 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+#SOLAR-SYSTEM {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: url('solar/space-background.jpg') no-repeat center center;
+  background-size: cover;
+  box-sizing: border-box;
+  border-bottom: 5px solid white;
+}
+
+.solar-system-structure {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0.8);
+}
+
+/* Animation keyframes */
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-left {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Orbit styles */
+.orbit {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: spin-right 60s linear infinite;
+  pointer-events: none;
+}
+
+/* Inner glow effect for orbits */
+.orbit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+#sun,
+.orbit,
+.orbit + div,
+.orbit + div > div {
+  position: absolute;
+} 
+
+#sun,
+.orbit,
+.orbit + div {
+  top: 50%;
+  left:50%;
+}
+.orbit + div > div {
+  top: 0;
+  left: 50%;
+}
+
+.orbit,
+.orbit + div div,
+#earth {
+  border-radius: 50%;
+}
+
+/* Individual objects rules. They are pretty much the same for 
+all objects and basically only vary in orbit size 
+and planet size. And colors :) */
+
+#sun {
+  height: 250px;
+  width: 250px;
+  margin-top: -125px;
+  margin-left: -125px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 30px #ffffff, 0 0 60px #ffffff;
+  background-image: none;
+}
+
+#earth, #venus, #mercury, #moon, #mars, #phobos, #deimos, #jupiter, #io, #europa, #saturn, #titan {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100px;
+  width: 100px;
+  margin-left: -50px;
+  margin-top: -50px;
+  border-radius: 50%; 
+  box-shadow: 0 0 10px #ffffff;
+  background-color: white;
+  border: 2px solid #f0f0f0;
+}
+  
+
+.earth-orbit {
+  width: 800px;
+  height: 800px;
+  margin-left: -400px;
+  margin-top: -400px;
+  animation-duration: 36.5s;
+}
+
+.earth-spin {
+  width: 800px;
+  height: 800px;
+  margin-left: -400px;
+  margin-top: -400px;
+  animation: spin-right 30s linear infinite;
+}
+
+/* Mars */
+.mars-orbit {
+  width: 1000px;
+  height: 1000px;
+  margin-left: -500px;
+  margin-top: -500px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  animation: spin-right 20s linear infinite;
+  pointer-events: none;
+}
+
+.mars-orbit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mars-spin {
+  width: 1000px;
+  height: 1000px;
+  margin-left: -500px;
+  margin-top: -500px;
+  animation: spin-right 50s linear infinite;
+}
+
+#mars {
+  animation: spin-right 24.6s linear infinite; /* Mars day is about 24.6 hours */
+}
+
+#mars {
+  height: 80px;
+  width: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+  background-color: #5a6b7a;
+  border: 2px solid #6a7b8a;
+  box-shadow: 0 0 10px #5a6b7a;
+}
+
+/* Mars Moons */
+.phobos-orbit {
+  width: 180px;
+  height: 180px;
+  margin-left: -90px;
+  margin-top: -90px;
+  border: 1px solid rgba(220, 220, 220, 0.3);
+  box-shadow: 0 0 15px rgba(220, 220, 220, 0.15);
+  animation: spin-right 1.5s linear infinite;
+  pointer-events: none;
+}
+
+.phobos-orbit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(220, 220, 220, 0.2);
+  pointer-events: none;
+}
+
+.phobos-spin {
+  width: 180px;
+  height: 180px;
+  margin-left: -90px;
+  margin-top: -90px;
+}
+
+#phobos {
+  margin-top: -4px;
+  margin-left: -4px;
+  height: 8px;
+  width: 8px;
+  background: #a3b8d1;
+  border: 1px solid #b8cde0;
+  box-shadow: 0 0 8px #a3b8d1;
+}
+
+.deimos-orbit,
+.deimos-spin {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  border: 1px solid rgba(220, 220, 220, 0.3);
+  box-shadow: 0 0 15px rgba(220, 220, 220, 0.15);
+}
+
+#deimos {
+  margin-top: -3px;
+  margin-left: -3px;
+  height: 6px;
+  width: 6px;
+  background: #a3b8d1;
+  border: 1px solid #b8cde0;
+  box-shadow: 0 0 6px #a3b8d1;
+}
+
+/* Jupiter */
+.jupiter-orbit {
+  width: 1200px;
+  height: 1200px;
+  margin-left: -600px;
+  margin-top: -600px;
+  animation-duration: 433.1s;
+}
+
+.jupiter-spin {
+  width: 1200px;
+  height: 1200px;
+  margin-left: -600px;
+  margin-top: -600px;
+  animation: spin-right 60s linear infinite;
+}
+
+#jupiter {
+  animation: spin-right 9.9s linear infinite; /* Jupiter's fast rotation (9.9 hours) */
+}
+
+#jupiter {
+  height: 180px;
+  width: 180px;
+  margin-left: -90px;
+  margin-top: -90px;
+  background: linear-gradient(135deg, #a3b8d1 0%, #8c98a4 50%, #6c7884 100%);
+  border: 2px solid #b8cde0;
+  box-shadow: 0 0 15px #a3b8d1;
+  position: relative;
+}
+
+/* Jupiter's Moons */
+.io-orbit {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  border: 1px solid rgba(220, 220, 220, 0.3);
+  box-shadow: 0 0 15px rgba(220, 220, 220, 0.15);
+  animation: spin-right 1.8s linear infinite;
+}
+
+.io-spin {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+#io {
+  margin-top: -3px;
+  margin-left: -3px;
+  height: 6px;
+  width: 6px;
+  background: #a3b8d1;
+  border: 1px solid #b8cde0;
+  box-shadow: 0 0 6px #a3b8d1;
+  animation: spin-right 5s linear infinite;
+}
+
+.europa-orbit {
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  border: 1px solid rgba(180, 200, 220, 0.4);
+  box-shadow: 0 0 15px rgba(180, 200, 220, 0.3);
+  animation: spin-right 3.5s linear infinite;
+}
+
+.europa-spin {
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+#europa {
+  margin-top: -3px;
+  margin-left: -3px;
+  height: 6px;
+  width: 6px;
+  background: #a3b8d1;
+  border: 1px solid #b8cde0;
+  box-shadow: 0 0 6px #a3b8d1;
+  animation: spin-right 7s linear infinite;
+}
+
+/* Moon Orbits */
+.moon-orbit {
+  width: 300px;  /* Increased from 200px */
+  height: 300px; /* Increased from 200px */
+  margin-left: -150px; /* Adjusted for new size */
+  margin-top: -150px;  /* Adjusted for new size */
+  border: 2px solid rgba(100, 180, 255, 0.5);
+  box-shadow: 0 0 20px rgba(100, 180, 255, 0.4);
+  animation: none;
+  pointer-events: none;
+}
+
+.moon-orbit::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  box-shadow: inset 0 0 10px rgba(100, 180, 255, 0.2);
+  pointer-events: none;
+}
+
+.moon-spin {
+  width: 300px;  /* Increased to match orbit */
+  height: 300px; /* Increased to match orbit */
+  margin-left: -150px; /* Adjusted for new size */
+  margin-top: -150px;  /* Adjusted for new size */
+  animation: spin-right 2.7s linear infinite;
+}
+
+/* Saturn */
+.saturn-orbit {
+  width: 1500px;
+  height: 1500px;
+  margin-left: -750px;
+  margin-top: -750px;
+  animation-duration: 1075.6s;
+  border-color: rgba(255, 200, 150, 0.2);
+}
+
+.saturn-spin {
+  width: 1500px;
+  height: 1500px;
+  margin-left: -750px;
+  margin-top: -750px;
+  animation: spin-right 90s linear infinite;
+}
+
+#saturn {
+  animation: spin-right 10.5s linear infinite; /* Saturn's rotation (10.5 hours) */
+}
+
+.saturn-rings {
+  animation: spin-right 12s linear infinite; /* Slightly different speed for rings */
+}
+
+#saturn {
+  height: 150px;
+  width: 150px;
+  margin-left: -75px;
+  margin-top: -75px;
+  background: linear-gradient(135deg, #d8e0e8 0%, #c0c8d0 50%, #a8b0b8 100%);
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 20px #d8e0e8;
+}
+
+.saturn-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 250px;
+  height: 80px;
+  margin-left: -125px;
+  margin-top: -40px;
+  background: transparent;
+  border: 15px solid rgba(220, 225, 230, 0.6);
+  border-radius: 50%;
+  transform: rotate(-20deg);
+  box-shadow: 0 0 25px rgba(220, 225, 230, 0.8);
+}
+
+/* Titan (Saturn's Moon) */
+.titan-orbit {
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  border: 1px solid rgba(220, 200, 150, 0.4);
+  box-shadow: 0 0 15px rgba(220, 200, 150, 0.3);
+  animation: spin-right 16s linear infinite;
+}
+
+.titan-spin {
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+#titan {
+  margin-top: -7px;
+  margin-left: -7px;
+  height: 14px;
+  width: 14px;
+  background: #a3b8d1;
+  border: 1px solid #b8cde0;
+  box-shadow: 0 0 10px #a3b8d1;
+}
+
+#moon {
+  margin-top: -6px;
+  margin-left: -6px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #a3b8d1;
+  box-shadow: 0 0 14px #a3b8d1;
+  position: relative;
+  animation: spin-right 2.7s linear infinite; /* Moon's rotation (27.3 days) */
+}
+
+/* Moonmoon (moon's moon) */
+#moonmoon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-top: -3px;
+  margin-left: -3px;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: #d0d8e0;
+  box-shadow: 0 0 6px #d0d8e0;
+  border: 1px solid #e0e8f0;
+}
+
+.moonmoon-orbit,
+.moonmoon-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 120px;
+  width: 120px;
+  margin-top: -60px;
+  margin-left: -60px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: spin-right 1.5s linear infinite;
+}
+
+.moonmoon-orbit {
+  animation: none;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+.moon-orbit {
+  animation: none;
+  border-color: rgb(255, 255, 255, 0.5);
+}
+
+.moon-spin {
+  height: 300px;
+  width: 300px;
+  margin-top: -150px;
+  margin-left: -150px;
+  animation: spin-right 2.3s linear infinite; /* Moon's orbit around Earth */
+}
+
+/* Venus Moon */
+#venus-moon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-top: -6px;
+  margin-left: -6px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  background: #d0d8e0;
+  box-shadow: 0 0 10px #d0d8e0;
+  border: 1px solid #e0e8f0;
+}
+
+.venus-moon-orbit,
+.venus-moon-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  width: 200px;
+  margin-top: -100px;
+  margin-left: -100px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: spin 5s linear infinite;
+}
+
+.venus-moon-orbit {
+  animation: none;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* All planets are now white */
+.venus-orbit,
+.venus-spin {
+  margin-top: -300px;
+  margin-left: -300px;
+  width: 600px;
+  height: 600px;
+}
+
+.mercury-orbit {
+  width: 450px;
+  height: 450px;
+  margin-left: -225px;
+  margin-top: -225px;
+  animation-duration: 8.8s;
+}
+
+.mercury-spin {
+  width: 450px;
+  height: 450px;
+  margin-left: -225px;
+  margin-top: -225px;
+  animation: spin-right 10s linear infinite;
+}
+
+/* Spinning animations */
+
+@keyframes spin-right {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-left {
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+
+.moon-spin {
+  animation: spin-right 2.7s linear infinite;
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+}
+.venus-spin {
+  animation: spin-right 22s linear infinite reverse;
+}
+.venus-moon-spin {
+  animation: spin-right 5s linear infinite reverse;
+}
+
+.mercury-spin {
+  animation: spin-right 8.8s linear infinite;
+}
+.mars-spin {
+  width: 1000px;
+  height: 1000px;
+  margin-left: -500px;
+  margin-top: -500px;
+  animation: spin-right 10.7s linear infinite reverse;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* Mars' Moons */
+.phobos-spin {
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  animation: spin-right 1s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.deimos-spin {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  animation: spin-right 1.9s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.phobos-orbit {
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  animation: spin-right 0.3s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.deimos-orbit {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  animation: spin-right 1.2s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* Jupiter's Moons Spin */
+.jupiter-spin {
+  animation: spin-right 50s linear infinite;
+}
+
+.io-spin {
+  width: 300px;
+  height: 300px;
+  margin-left: -150px;
+  margin-top: -150px;
+  animation: spin-right 1.8s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.europa-spin {
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  animation: spin-right 3.5s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+/* Saturn's Moon Spin */
+.saturn-spin {
+  animation: spin-right 80s linear infinite reverse;
+}
+
+.titan-spin {
+  width: 500px;
+  height: 500px;
+  margin-left: -250px;
+  margin-top: -250px;
+  animation: spin-right 16s linear infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+
+/* SOLAR *//* SOLAR *//* SOLAR *//* SOLAR *//* SOLAR *//* SOLAR *//* SOLAR *//* SOLAR *//* SOLAR */

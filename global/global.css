@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+img{
+  object-fit: cover;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--color-font);
+  line-height: 1.6;
+  font-family: var(--text-primary);
+  /* backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); */
+}
+
+
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('../assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+:root {
+    /* Typography */
+    --text-primary: 'IBM Plex Sans', sans-serif;
+    --text-secondary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+    
+    /* Main Colors */
+    --color-font: #687298;
+    --color-font2: #92a1ba;
+    --color-background1: rgba(255, 255, 255, 0.7);
+    --color-background2: rgba(255, 255, 255, 0.6);
+    --color-border: rgb(240, 184, 115);
+
+    /* Crystal Colors */
+    --crystal-1: #ffffff;
+    --crystal-2: #ecf0f9;
+    --crystal-3: #c9d3e2;
+    --crystal-4: #f8eedf;
+    --crystal-5: #eed4b2;
+
+}
+
+
+
+
+/* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY */
+
+/* ===== LAYOUT UTILITIES ===== */
+
+#CHARACTER-LAYOUT {
+  display: flex;
+  gap: 35px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Base paragraph styling */
+
+/* ===== COLUMNS ===== */
+.column-1 {
+  flex: 0 0 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 500px  ;
+}
+
+.column-2 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  min-width: 0; 
+  max-width: 1000px  ;
+  
+  /* Prevents flex items from overflowing */
+}
+
+/* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY *//* BODY */

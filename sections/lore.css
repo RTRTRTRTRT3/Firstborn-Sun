@@ -1,0 +1,94 @@
+/* ===== LORE SECTION ===== */
+#LORE-CARD {
+  background: var(--color-background1);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  color: var(--color-font);
+}
+
+#LORE-CARD:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+.lore-container {
+  display: flex;
+  gap: 25px;
+  min-height: 300px;
+  position: relative;
+  padding-top: 20px;
+}
+
+.lore-section {
+  position: relative;
+  padding-right: 120px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.lore-section p {
+  margin: 0 0 10px 0;
+  line-height: 1.5;
+}
+
+.lore-side-images {
+  position: absolute;
+  right: -100px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 150px;
+  height: calc(100% - 30px);
+  justify-content: space-between;
+}
+
+.lore-side-image {
+  width: 150px;
+  flex: 1;
+  min-height: 80px;
+  max-height: 140px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid var(--color-border);
+}
+
+.lore-side-image:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.lore-side-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.lore-side-image:hover img {
+  transform: scale(1.05);
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--text-primary);
+  color: var(--color-font);
+}
+
+p {
+  font-family: var(--text-secondary);
+  margin: 0.8em 0;
+  line-height: 1.6;
+  color: var(--color-font);
+}

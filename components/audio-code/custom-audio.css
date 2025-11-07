@@ -1,0 +1,175 @@
+.text-voice-claim {
+    font-family: Arial, serif;
+    font-style: italic;
+    font-size: 22px;
+    margin: 0 0 12px 0;
+    color: var(--color-font);
+    font-weight: 500;
+}
+
+.prev, .play, .next {
+    color: var(--color-font);
+}
+
+/* Audio Player Styles */
+.custom-audio {
+    background: var(--color-background2);
+    border-radius: 12px;
+    padding: 25px 30px 25px 80px; /* Increased left padding for record */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    position: relative;
+    overflow: visible;
+    transition: all 0.3s ease;
+
+}
+
+/* Record Icon Styles */
+.record {
+    position: absolute;
+    left: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.record-icon {
+    width: 100%;
+    height: 100%;
+    color: var(--color-font);
+    transform-origin: center;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.3));
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+}
+
+/* Spinning animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.record.visible {
+    opacity: 1;
+}
+
+.record.playing .record-icon {
+    animation: spin 2s linear infinite;
+}
+
+.record.playing .disc-line-1,
+.record.playing .disc-line-2,
+.record.playing .disc-center,
+.record:hover .record-icon {
+    animation: none;
+    opacity: 0.8;
+}
+
+.record:hover .record-icon {
+    transform: none;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.custom-audio:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.audio-line {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.time {
+    font-size: 13px;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--color-font);
+    text-align: left;
+    opacity: 0.8;
+    letter-spacing: 0.5px;
+    width: 100%;
+}
+
+
+.audio-progress-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.progress-container {
+    flex: 1;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--color-background2);
+}
+
+.progress-container:hover {
+    height: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.progress {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, var(--color-border));
+    width: 0%;
+    transition: width 0.1s linear;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(104, 114, 152, 0.5);
+    min-height: 6px;
+}
+
+.audio-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.audio-controls button {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--color-font);
+    font-size: 14px;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    padding: 0;
+    outline: none;
+}
+
+.audio-controls button:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.audio-player {
+    display: none;
+}
